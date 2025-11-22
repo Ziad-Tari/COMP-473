@@ -13,8 +13,8 @@ import torchvision.utils as vutils
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-from Conifg import config as cfg
-
+import config as cfg
+import weights as winit
 
 
 class Discriminator(nn.Module):
@@ -44,3 +44,21 @@ class Discriminator(nn.Module):
 
     def forward(self, input):
         return self.main(input)
+    
+
+
+# device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+# print("Using device:", device)
+
+# # Now you can move your network to the device
+# netD = Discriminator(cfg.ngpu).to(device)
+
+# # Handle multi-GPU if desired
+# if (device.type == 'cuda') and (cfg.ngpu > 1):
+#     netD = nn.DataParallel(netD, list(range(cfg.ngpu)))
+
+# # Apply weight initialization
+# netD.apply(winit.weights_init)
+
+# # Print the model
+# print(netD)

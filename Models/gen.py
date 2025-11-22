@@ -13,8 +13,8 @@ import torchvision.utils as vutils
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-from Conifg import config as cfg
-from IPython.display import HTML
+import config as cfg
+# from IPython.display import HTML
 
 class Generator(nn.Module):
     def __init__(self, ngpu):
@@ -48,3 +48,6 @@ class Generator(nn.Module):
         return nn.parallel.data_parallel(self.main, input, range(self.ngpu))
      else:
         return self.main(input)
+
+
+# Create the Discriminator
