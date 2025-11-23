@@ -3,3 +3,5 @@ data/
 notebooks/
 
 .DS_Store
+./CelebA.zip
+./CelebA

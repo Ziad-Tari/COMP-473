@@ -13,8 +13,9 @@ import torchvision.utils as vutils
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-import config as cfg
-import weights as winit
+
+from config import Config as cfg
+from weights import weights_init as winit
 
 
 class Discriminator(nn.Module):

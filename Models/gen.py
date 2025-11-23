@@ -13,7 +13,8 @@ import torchvision.utils as vutils
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-import config as cfg
+
+from config import Config as cfg
 # from IPython.display import HTML
 
 class Generator(nn.Module):
@@ -44,9 +45,6 @@ class Generator(nn.Module):
         )
 
     def forward(self, input):
-     if isinstance(input, torch.cuda.FloatTensor) and self.ngpu > 1:
-        return nn.parallel.data_parallel(self.main, input, range(self.ngpu))
-     else:
         return self.main(input)
 
 
