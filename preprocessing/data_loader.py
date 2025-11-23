@@ -72,13 +72,12 @@ def get_dataloader(dataset_name='celeba', dataroot='./data', image_size=64,
         drop_last=True,
     )
     
-    print(f"✓ Dataloader created: {len(dataloader)} batches per epoch")
-    print(f"  Batch size: {batch_size}")
-    print(f"  Image size: {image_size}x{image_size}")
-    print(f"  Total batches: {len(dataloader)}")
+    print(f"Dataloader created: {len(dataloader)} batches per epoch")
+    print(f"Batch size: {batch_size}")
+    print(f"Image size: {image_size} by {image_size}")
+    print(f"Total batches: {len(dataloader)}")
     
     return dataloader, dataset
-
 
 def verify_dataloader(dataloader):
     """
@@ -103,14 +102,12 @@ def verify_dataloader(dataloader):
         
     return images
 
-
 # Example usage
 if __name__ == "__main__":
 
     print("DCGAN Data Preprocessing Test\n")
     
-    # Test with CIFAR-10 (fastest)
-    print("Testing with CIFAR-10 (quick download)...")
+    print("Testing with CIFAR-10")
     dataloader, dataset = get_dataloader(
         dataset_name='cifar10',
         dataroot='./data',
@@ -119,5 +116,4 @@ if __name__ == "__main__":
         workers=2
     )
     
-    # Verify it works
     images = verify_dataloader(dataloader)
